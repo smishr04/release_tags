@@ -2,7 +2,7 @@ name: Old Bump version
 on:
   push:
     branches:
-      - main
+      - N/A
 jobs:
   build:
     runs-on: ubuntu-latest
