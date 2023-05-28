@@ -18,7 +18,7 @@ jobs:
           # default_bump: patch
           create_annotated_tag: true
           tag_prefix: v
-          dry_run: true
+          dry_run: false
   
       - name: Create a GitHub release
         uses: actions/create-release@v1
