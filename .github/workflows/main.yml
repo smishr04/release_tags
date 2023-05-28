@@ -15,6 +15,7 @@ jobs:
         uses: miguelfito/github-bump-and-tag-action@v1
         with:
           github_token: ${{ secrets.Token }}
+          dry_run: true
 
       - name: Create a GitHub release
         uses: actions/create-release@v1
