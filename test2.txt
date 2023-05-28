@@ -1,4 +1,4 @@
 1. Understanding business release roadmap and targets.
 2. Understanding infrastructure, requirements for builds, deployments and implementation.
 3. Planning, designing and implementing environment provisioning strategies.
-
+4. Planning, designing and building a cross-worksteam CI/CD pipeline that guarantees stable, fit-for-purpose build versions
