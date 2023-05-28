@@ -65,7 +65,7 @@ jobs:
           default_bump: false
           tag_prefix: v
           create_annotated_tag: true
-          custom_release_rules: hotfix:patch,feat:minor,pre-feat:preminor,bug:patch:Bug Fixes,chore:patch:Chores,perf:major
+          custom_release_rules: hotfix:patch,feat:minor:Features,pre-feat:preminor,bug:patch:Bug Fixes,chore:patch:Chores,perf:major:Breaking Changes
       - name: Github release
         uses: actions/create-release@v1
         env:
