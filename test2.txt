@@ -1,1 +1,3 @@
 1. Understanding business release roadmap and targets
+2. Understanding infrastructure, requirements for builds, deployments and implementation
+
