@@ -1,2 +1,3 @@
 this is a test file
 Added new feature 1
+added new feature 2
