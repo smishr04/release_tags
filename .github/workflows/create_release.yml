@@ -15,7 +15,7 @@ jobs:
         uses: miguelfito/github-bump-and-tag-action@v1
         with:
           github_token: ${{ secrets.Token }}
-          default_bump: false
+          default_bump: major
           create_annotated_tag: true
           tag_prefix: v
           dry_run: true
