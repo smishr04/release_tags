@@ -62,6 +62,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           release_branches: main
+          default_bump: patch
+          tag_prefix: v
           create_annotated_tag: true
       - name: Github release
         uses: actions/create-release@v1
