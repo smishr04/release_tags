@@ -39,15 +39,3 @@ jobs:
                   create_annotated_tag: true
                   tag_prefix: v
 
-            - uses: fregante/release-with-changelog@v3
-              with:
-                  tag: ${{ steps.tag_version.outputs.new_tag }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  commit-template: '- {date}: {title} ← {hash}'
-                  template: |
-                      ### Changelog
-                      {commits}
-
-                      Compare: {range}
-
-                      ❤
