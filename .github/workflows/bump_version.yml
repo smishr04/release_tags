@@ -23,7 +23,7 @@ jobs:
                   default_bump: patch
                   create_annotated_tag: true
                   tag_prefix: v
-                  dry_run: false
+                  dry_run: true
 
             - name: Get updated commit SHA
               run: |
