@@ -1,43 +1,72 @@
-name: Bump version
+# name: Bump version
+# on:
+#   push:
+#     branches:
+#       - main
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+        
+#       - name: Calculate version
+#         id: tag_version
+#         uses: miguelfito/github-bump-and-tag-action@v1
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           default_bump: patch
+#           create_annotated_tag: true
+#           tag_prefix: v
+#           dry_run: true
+          
+#       - name: Get updated commit SHA
+#         run: |
+#           echo "##[set-output name=commit_id;]$(git rev-parse HEAD)"
+#         id: updated_sha
+
+#       - name: Bump version and push tag
+#         uses: miguelfito/github-bump-and-tag-action@v1
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           commit_sha: ${{ steps.updated_sha.outputs.commit_id }}
+#           default_bump: patch
+#           create_annotated_tag: true
+#           tag_prefix: v
+  
+#       - name: Create a GitHub release
+#         uses: actions/create-release@v1
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
+#         with:
+#           tag_name: ${{ steps.tag_version.outputs.new_tag }}
+#           release_name: Release ${{ steps.tag_version.outputs.new_tag }}
+#           body: ${{ steps.tag_version.outputs.changelog }}
+
+---
+name: Auto Release
 on:
   push:
     branches:
-      - main
+      - test
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        
-      - name: Calculate version
+    steps: 
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Bump Version
         id: tag_version
-        uses: miguelfito/github-bump-and-tag-action@v1
+        uses: mathieudutour/github-tag-action@v6.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          default_bump: patch
+          release_branches: main
           create_annotated_tag: true
-          tag_prefix: v
-          dry_run: true
-          
-      - name: Get updated commit SHA
-        run: |
-          echo "##[set-output name=commit_id;]$(git rev-parse HEAD)"
-        id: updated_sha
-
-      - name: Bump version and push tag
-        uses: miguelfito/github-bump-and-tag-action@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_sha: ${{ steps.updated_sha.outputs.commit_id }}
-          default_bump: patch
-          create_annotated_tag: true
-          tag_prefix: v
-  
-      - name: Create a GitHub release
+      - name: Github release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.tag_version.outputs.new_tag }}
           release_name: Release ${{ steps.tag_version.outputs.new_tag }}
