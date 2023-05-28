@@ -19,8 +19,7 @@ jobs:
           create_annotated_tag: true
           tag_prefix: v
           dry_run: true
-          append_to_pre_release_tag: false
-
+  
       - name: Create a GitHub release
         uses: actions/create-release@v1
         env:
