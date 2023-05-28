@@ -1,4 +1,4 @@
-name: Old Bump version
+name: Bump version
 on:
   push:
     branches:
@@ -15,14 +15,16 @@ jobs:
         uses: miguelfito/github-bump-and-tag-action@v1
         with:
           github_token: ${{ secrets.Token }}
+          default_bump: patch
+          create_annotated_tag: true
+          tag_prefix: v
           dry_run: true
 
       - name: Create a GitHub release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.Token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.tag_version.outputs.new_tag }}
           release_name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
-  
