@@ -1,4 +1,4 @@
-1.  Planning, designing and implementing using infrastructure as code with Terraform.
+1.  Planning, Designing and Implementing using infrastructure as code with Terraform.
 2.  Managing the workload and capacity of the devops team requirements.
 3.  Extensive Azure Cloud and Azure devOps experience.
 4.  Deep understanding of CI/CD and its best practices.
