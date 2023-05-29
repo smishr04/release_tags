@@ -1,2 +1,2 @@
-1.  Planning, designing and implementing using infrastructure as code with Terraform
-2. Managing the workload and capacity of the devops team requirements
+1.  Planning, designing and implementing using infrastructure as code with Terraform.
+2. Managing the workload and capacity of the devops team requirements.
